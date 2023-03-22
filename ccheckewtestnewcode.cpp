@@ -194,9 +194,8 @@ void ccheckewtestnewcode(const char* file) {
 			int p = mc->getPDG();
 
 
-			if  ( p == 310  || p == -310 || p == -5122 || p == 5122 || p == 22 )
+			if  ( p == 310  || p == -310 || p == -5122 || p == 5122 || p == 22 ) // PDG particles
 			{
-
 				std::vector <MCParticle*> daughters = mc->getDaughters();
 
 				if (daughters.size() == 0)
@@ -222,8 +221,6 @@ void ccheckewtestnewcode(const char* file) {
 				std::cout << " ver mc is x " << positio[0] << "   y" << positio[1] << "   z" << positio [2] << "   " << std::endl;
 
 
-
-
 				//_________get Weight and Recoparticles collection__________________________________________
 
 				std::vector <float> weight;
@@ -241,18 +238,16 @@ void ccheckewtestnewcode(const char* file) {
 
 					for(int w = 0; w < weight.size(); w++ ) {
 						ReconstructedParticle* recoparticle = dynamic_cast <ReconstructedParticle*>(nav-> getRelatedToObjects (daughters.at(j))[w]);
-						//reco_vec.push_back(recoparticle);
 					}
-
-
 
 					ReconstructedParticle* recopar_mass1 = dynamic_cast <ReconstructedParticle*> (nav->getRelatedToObjects(daughters.at(j))[max1]);
 					Vertex* reco_ver1 = dynamic_cast <Vertex*> (recopar_mass1->getStartVertex());
 	
-						if (reco_ver1 == nullptr){
+					if (reco_ver1 == nullptr)
+					{
 						std::cout<<" null Vzero" <<std::endl;
 						continue;				
-					}
+											}
 
 					std::array<float,3> pos1= { reco_ver1->getPosition()[0], reco_ver1->getPosition()[1], reco_ver1->getPosition()[2]};
 
@@ -260,26 +255,22 @@ void ccheckewtestnewcode(const char* file) {
 					//ver_reco_vec.push_back(reco_ver1);
 					//pos_reco_vec.push_back(pos1);
 					//__________________________________
-				//	RECO.rec_vec = recopar_mass1;
-				//	RECO.vertex_vec = reco_ver1;
+					//RECO.rec_vec = recopar_mass1;
+					//RECO.vertex_vec = reco_ver1;
 					
 					/*for (int i=0; i<3;i++){ 
 						RECO.position[i] = pos1[i];
 					};*/
-
-				//	RECO_VEC_STRUCT.push_back(RECO);
-
+					
+					//RECO_VEC_STRUCT.push_back(RECO);
 					//____________________________________
 
 					
 					if ( vero != nullptr )
-
 					{
-					
 						std::cout << std::endl;
 						std::cout << "VZERO exist in Event " <<i << std::endl;
 						int nVertexrec = vero->getNumberOfElements();
-
 
 						for (int v = 0; v < nVertexrec; v++)
 						{
@@ -312,11 +303,13 @@ void ccheckewtestnewcode(const char* file) {
 							ReconstructedParticle* asos = vertexzero->getAssociatedParticle();
 							if (asos ==  nullptr){
 								
-								std::cout<< "NUHHHHHHHHHHHH"<<std::endl;
+								std::cout<< "Asos is 0 pointer"<<std::endl;
+								continue;
 
 							}
 							
-							std::cout<< "type"<<asos->getType()<<std::endl;
+							std::cout<< "Type is"<<asos->getType()<<std::endl;
+							
 							Vertex* ver_asos = dynamic_cast <Vertex*> (asos->getStartVertex());
 							if(ver_asos==nullptr){
 								std::cout<<" ITS NULL "<<std::endl;
@@ -327,22 +320,21 @@ void ccheckewtestnewcode(const char* file) {
 
 							asos_vec.push_back(asos);
 							ver_asos_vec.push_back(ver_asos);
-						//	std::cout<<pos_asos.size();
-  						//	pos_asos_vec.insert(it, pos_asos);
+							//std::cout<<pos_asos.size();
+  							//pos_asos_vec.insert(it, pos_asos);
 							std::cout<<"LOL"<<pos_asos_vec.size()<< "size ps in loop" <<std::endl;
-
+							
 							//___________________________________
 							
-						/*	VZERO.rec_vec = asos;
-							VZERO.vertex_vec = ver_asos;
-							for (int b=0;b<3;b++){
+							/*VZERO.rec_vec = asos;
+							  VZERO.vertex_vec = ver_asos;
+							  for (int b=0;b<3;b++){
 								VZERO.position[b] = pos_asos[b];
-							};
-							VZERO_VEC_STRUCT.push_back(VZERO); */
+							  };
+							  VZERO_VEC_STRUCT.push_back(VZERO); */
 
 							
 							//______________________________________
-
 
 							std::cout << " Type in Vertex " << asos->getType() << std::endl;
 							std::cout << std::endl;
@@ -356,7 +348,7 @@ void ccheckewtestnewcode(const char* file) {
 					    	histo_event-> Fill(i);
 					}
 
-				}
+				 }
 
 				//-- dot
 			}
@@ -415,8 +407,6 @@ void ccheckewtestnewcode(const char* file) {
 		}
 	}
 */
-
-
 
 //	std::cout<<"size struct"<<VZERO_VEC_STRUCT.size()<<std::endl;
 	std::cout<<diff_x.size()<<std::endl; 
