@@ -30,7 +30,6 @@
 using namespace lcio;
 using namespace std;
 
-
 // def my var
 std::vector <int> novzerocollection; // novzero coll events
 std::vector <int> vzerocollectionexist; // + vzero collection
@@ -48,7 +47,6 @@ std::vector <MCParticle*>  mc_vec; //  MC*_Daughters
 #define vec_mc std::vector <std::vector <MCParticle*>>
 #define vec_reco std::vector <std::vector <ReconstructedParticle*>>
 #define vec_array std::vector<std::array<float,3>>  
-
 
 struct my_data{	
 
