@@ -315,7 +315,7 @@ void ccheckewtestnewcode(const char* file) {
 								std::cout<< "NUHHHHHHHHHHHH"<<std::endl;
 
 							}
-							std::cout<< "HMMM____"<<std::endl;
+							
 							std::cout<< "type"<<asos->getType()<<std::endl;
 							Vertex* ver_asos = dynamic_cast <Vertex*> (asos->getStartVertex());
 							if(ver_asos==nullptr){
@@ -359,7 +359,6 @@ void ccheckewtestnewcode(const char* file) {
 				}
 
 				//-- dot
-
 			}
 
 		}
@@ -375,17 +374,14 @@ void ccheckewtestnewcode(const char* file) {
 
 }
 
-
-	
-// std::cout << "size of reco_vec" << std::endl;
-///	std::cout << reco_vec.size() << std::endl; //122303
+// 	std::cout << "size of reco_vec" << std::endl;
+//	std::cout << reco_vec.size() << std::endl; //122303
 //	std::cout << "Size of asos" << std::endl;
 //	std::cout << asos_vec.size() << std::endl; //105228
 
 	std::vector <float> position_mc;
 	std::vector <float> position_reco;
 	std::vector <float> pos_diff;
-
 
 /*	for ( int j = 0; j < reco_vec.size(); j++) {
 		for (int l = 0; l < asos_vec.size(); l++) {
