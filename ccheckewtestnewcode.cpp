@@ -15,7 +15,6 @@
 
 //#endiF
 
-#include <map>
 #include <vector>
 #include <algorithm>
 #include <memory>
@@ -24,55 +23,24 @@
 #include <cstdio>
 #include <fstream>
 #include <iostream>
-#include <memory>
+#include <map>
 #include <stdexcept>
 
 using namespace lcio;
 using namespace std;
 
-// def my var
 std::vector <int> novzerocollection; // novzero coll events
 std::vector <int> vzerocollectionexist; // + vzero collection
 std::vector <int> equal_pointers; // equal RecoPar pointers
 
 std::vector <double> xmc, ymc, zmc;  // MC_positon
 std::vector <double> xvzero, yvzero, zvzero;  // VZero_position
-std::vector <float> diff_x, diff_y, diff_z;
 std::vector <MCParticle*>  mc_vec; //  MC*_Daughters
 
 /// -----------------------------------
-
-#define vec_s std::vector <std::string>
 #define vec std::vector <double>
 #define vec_mc std::vector <std::vector <MCParticle*>>
 #define vec_reco std::vector <std::vector <ReconstructedParticle*>>
-#define vec_array std::vector<std::array<float,3>>  
-
-struct my_data{	
-
-	std::vector <std::vector <ReconstructedParticle*>> rec_vec;
-	std::vector <std::vector <Vertex*>> vertex_vec;
-	std::vector <std::vector <std::array<float,3>>> position;
-
-} RECO, VZERO;
-
-
-std::vector <std::array <float,3>> DIFFERENCE_ARRAY(std::array<float,3> array1, std::array<float,3> array2){
-std::vector <std::array<float,3>> DIFF_VEC;	
-std::array <float,3> DIFF_VAR;
-		for (int j=0; j<array1.size(); j++){
-				for (int i=0; i<3; i++){
-					DIFF_VAR[i] = array1[i]-array2[i];}
-					DIFF_VEC.push_back (DIFF_VAR);
-		}
-
-	return DIFF_VEC;
-}
-
-
-//#define COMPARE_VZERO struct my_data
-std::vector <my_data> RECO_VEC_STRUCT;
-std::vector <my_data> VZERO_VEC_STRUCT;
 
 void ccheckewtestnewcode(const char* file) {
 
